@@ -13,7 +13,7 @@ const AddBookModal = (props) => {
   return (
     <div>
       <Modal open={open} onClose={closeModal} center>
-        <BookForm author={props.author} closeModal={closeModal} />
+        <BookForm author={props.authorID} closeModal={closeModal} />
       </Modal>
       <input type="button" onClick={openModal} value="Add New Book!" />
     </div>
