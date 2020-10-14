@@ -7,7 +7,7 @@ const BookForm = (props) => {
     const [book, setBook] = useState({
       title: "",
       colore: "",
-      authors:[],
+      authors:[props.author.id,]
     });
   
     useEffect(() => {
@@ -18,7 +18,7 @@ const BookForm = (props) => {
   
     const submitBook = (event) => {
       event.preventDefault();
-      props.postBook(book,props.author, props.closeModal);
+      props.postBook(book,props.author,props.closeModal);
     };
   
     const errors = props.errors;
@@ -34,8 +34,7 @@ const BookForm = (props) => {
               <p key={error}>{error}</p>
             ))}
           </div>
-        )}
-          <input type="hidden" className="form-control" value={props.author} name="authors" onChange={textChangeHandler} /> 
+        )} 
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text">Title</span>
@@ -67,8 +66,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    postBook: (newBook,author, closeModal) =>
-      dispatch(postBook(newBook,author, closeModal)),
+    postBook: (newBook, author,closeModal) =>
+      dispatch(postBook(newBook,author,closeModal)),
     resetErrors: () => dispatch(resetErrors()),
   };
 };

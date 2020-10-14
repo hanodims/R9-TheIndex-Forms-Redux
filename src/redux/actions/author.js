@@ -38,5 +38,9 @@ export const postBook = (newBook,author, closeModal) => async (dispatch) => {
       type: SET_ERRORS,
       payload: err.response.data,
     });
+    dispatch({
+      type: SET_AUTHOR_DETAIL,
+      payload: author,
+    });
   }
 };

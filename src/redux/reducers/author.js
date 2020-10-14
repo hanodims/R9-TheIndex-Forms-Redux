@@ -7,6 +7,7 @@ import {
 const initialState = {
   author: null,
   loading: true,
+  book: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -28,7 +29,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         book: action.payload,
-        authors:action.author,
         loading: false,
       };
 
